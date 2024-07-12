@@ -10,5 +10,6 @@ app.set('view engine', 'pug');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', router);
+app.use(express.static('public'))
 
 module.exports = app;

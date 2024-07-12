@@ -1,16 +1,23 @@
 extends layout.pug
 
 block content
-  - data = data || {}
-  if errors
-    ul 
-      for error in errors
-        li= error.msg
-  form(action="." method="POST")
-    label(for="name") Name:
-    input(type="text" id="name" name="name" value=data.name)
-  
-    label(for="email") Email:
-    input(type="email" id="email" name="email" value=data.email)
-  
-    input(type="submit" value="Submit")
+  .d-flex.justify-content-center.align-items-center.min-vh-100
+    .card.p-4.shadow-sm
+      h1.text-center.mb-4 My Amazing App
+      - data = data || {}
+      if errors
+        .alert.alert-danger
+          ul 
+            for error in errors
+              li= error.msg
+      form(action="." method="POST")
+        .form-group
+          label(for="name") Name:
+          input.form-control(type="text" id="name" name="name" value=data.name)
+        
+        .form-group
+          label(for="email") Email:
+          input.form-control(type="email" id="email" name="email" value=data.email)
+        
+        button.btn.btn-primary.btn-block(type="submit") Submit
+
